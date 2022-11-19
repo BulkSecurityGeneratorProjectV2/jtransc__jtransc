@@ -22,6 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -398,7 +399,7 @@ public class File implements Serializable, Comparable<File> {
     }
     
     public static File createTempFile(String prefix, String suffix) throws IOException {
-        return createTempFile(prefix, suffix, null);
+        return Files.createTempFile(prefix, suffix).toFile();
     }
     
     public int compareTo(File pathname) {
